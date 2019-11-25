@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+appapp-bs-navbar {
+  min-height: 100%;
+  width: 100%;
+  margin-bottom: -271px;
+  display: table;
+}
+
+router-outlet,
+footer{
+  display: table-row;
+}
+
+header-main {
+ height: 60px;
+}
+
+router-outlet {
+  position: absolute;
+}
+
+footer {
+  height: 20px;
+}
+
+#banner {
+  width : 100%;
+
+  background-color: 	#DEB887  ;
+}
+
+main {
+  margin: 0px;
+  max-width: 100%;
+  max-height: 100%;
+}

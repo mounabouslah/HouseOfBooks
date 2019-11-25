@@ -1,0 +1,76 @@
+<div style="margin-top:55px;background-color:burlywood ">
+<div class="row  mx-auto justify-context-center " >
+  <div class="col-md-6 "style="font-weight:600;">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+          <div class="form-group" >
+            <label for="title">Title</label>
+            <input #title="ngModel" [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control" required>
+            <div class="alert "style="color:red" *ngIf="title.touched && title.invalid">
+              Title is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input #author="ngModel" [(ngModel)]="product.author" name="author" id="author" type="text" class="form-control" required>
+            <div class="alert " style="color:red"*ngIf="author.touched && author.invalid">
+              Author is required.
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="price">Price</label>
+              <div class="input-group-prepend">
+                <span class="input-group-text">DT</span>
+                <input #price="ngModel" [(ngModel)]="product.price" name="price" id="price" type="number" class="form-control" required [min]="0">
+              </div>
+              <div class="alert "style="color:red" *ngIf="price.touched && price.invalid">
+                <div *ngIf="!!price.errors.required">Price is required.</div>
+                <div *ngIf="!!price.errors.min">Price should be 0 or higher.</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="category">Category</label>
+              <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
+                <option value=""></option>
+                <option *ngFor="let c of categories$ | async" [value]="c.$key">
+                  {{ c.name }}
+                </option>
+              </select>
+              <div class="alert"style="color:red" *ngIf="category.touched && category.invalid">
+                Category is required.
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input #description="ngModel" [(ngModel)]="product.description" name="description" id="description" type="text" class="form-control" required>
+            <div class="alert " style="color:red;" *ngIf="description.touched && description.invalid">
+              Desciption is required.
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="imageUrl">Image URL</label>
+              <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
+              <div class="alert "style="color:red" *ngIf="imageUrl.touched && imageUrl.invalid">
+                <div *ngIf="!!imageUrl.errors.required">Image URL is required.</div>
+                <div *ngIf="!!imageUrl.errors.url">Please enter a valid URL.</div>
+              </div>
+          </div>
+          <button class="btn btn-primary">Save</button>
+          <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+      </form>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="product.title" class="card" style="width: 18rem;">
+      <img class="card-img-top" [src]="product.imageUrl" *ngIf="product.imageUrl">
+       <hr>
+        <div class="card-body">
+          <h4 class="card-title">{{ product.title }}</h4>
+          <h5 class="card-title">{{ product.author }}</h5>
+          <p class="card-text">{{ product.price | currency:' DT' }}</p>
+          <p class="card-title">{{ product.category }}</p>
+          <p class="card-title">{{ product.description | summary }}</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+</div>

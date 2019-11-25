@@ -1,0 +1,13 @@
+
+.card {
+  margin-bottom: 30px;
+}
+
+.card-footer {
+  padding: 0;
+}
+
+div.card {
+  height: calc(100% - 15px);
+  margin-bottom: 15px;
+}

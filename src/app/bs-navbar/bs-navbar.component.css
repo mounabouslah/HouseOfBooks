@@ -1,0 +1,61 @@
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.img-custom {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+nav {
+  opacity: 0.7;
+
+}
+
+.custom-cat {
+  width: 180px !important;
+  background-color: #343A40;
+  opacity: 0.8;
+  font-weight:bold;
+}
+.custom-bar
+{
+  width: 1000px !important;
+  background-color: #343A40;
+  opacity: 0.8;
+  font-weight:bold;
+}
+
+.custom-btn {
+  border-color: whiteF;
+  color: whiteF;
+  background-color: transparent;
+}
+
+.custom-btn:hover {
+  background-color:white;
+  color: white;
+}
+
+.custom-text,a {
+  color: white
+}
+
+.custom-search {
+  outline: 2px solid white;
+}
+button.btn
+{
+  background-color:transparent;
+  box-shadow: 0 0 1pt 1ptwhite;
+  outline: 2px solid white;
+  color:white;
+}
+input{
+  background-color: transparent;
+   color:white;
+   box-shadow: 0 0 1pt 1pt white;
+   outline: 2px solid white;
+}

@@ -1,0 +1,12 @@
+<div class="card" style="width: 15rem;">
+    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">{{ product.price | currency: 'DT '}}</p>
+      <p class="card-text"> {{ product.description | summary }} </p>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-primary btn-block"
+       routerLink="/check-out">Buy Now !</a>
+    </div>
+  </div>

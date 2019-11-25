@@ -1,0 +1,23 @@
+<div class="text-img">
+  <img class="full-image" src='https://www.incimages.com/uploaded_files/image/970x450/getty_549933903_2000133320009280405_105293.jpg' alt="">
+  <div class="btn custom-btn-img align-middle" (click)="scroll(prod_section)">OUR BOOKS</div>
+</div>
+<div class="row" #prod_section>
+  <!--div>
+    <app-product-filter [category]="category"></app-product-filter>
+  </div-->
+  <div class="offset-1 col">
+      <div class="row ">
+
+          <ng-container *ngFor="let p of filteredProducts| paginate: { itemsPerPage: 16, currentPage: x} ; let i = index " class="center" >
+              <div class="col-3">
+                 <app-product-card [product]="p"></app-product-card>
+              </div>
+          </ng-container>
+          <pagination-controls style="padding-left: 300px; color: black" (pageChange)="x = $event" ></pagination-controls>
+        </div>
+  </div>
+</div>
+
+
+

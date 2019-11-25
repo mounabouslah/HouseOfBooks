@@ -1,0 +1,52 @@
+
+<p style="padding-top: 60px" >
+    <a routerLink="/admin/admin-products/new" class="btn btn-primary">Add New Product</a>
+</p>
+<form class="form-inline my-3 my-lg-0">
+  <input #query (keyup)="filter(query.value)" class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" >
+</form>
+
+
+
+<!-- <p>
+  <input
+   #query
+   (keyup)="filter(query.value)"
+   type="text" class="form.control" placeholder="Search...">
+</p> -->
+
+<table class="table table-striped" [mfData]="filteredProducts" #mf="mfDataTable" [mfRowsOnPage]="10" >
+  <thead>
+    <tr >
+      <th>Cover</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of mf.data">
+      <td>
+        <img [src]="p.imageUrl" class="thumbnail" alt="image">
+      </td>
+      <td>{{ p.title }}</td>
+      <td>{{ p.author }}</td>
+      <td>{{ p.price | currency: 'DT ' }}</td>
+      <td>{{ p.category }}</td>
+      <td>{{ p.description | summary }}</td>
+      <td>
+        <a [routerLink]="['/admin/admin-products/', p.$key]">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
